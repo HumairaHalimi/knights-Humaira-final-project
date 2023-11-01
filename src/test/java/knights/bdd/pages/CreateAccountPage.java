@@ -18,4 +18,5 @@ public class CreateAccountPage {
     public final static By SELECT_GENDER = By.id("gender");
     public final static By SELECT_MARITAL_STATUS = By.id("maritalStatus");
     public final static By SELECT_TITLE = By.id("title");
+    public final static By ERROR_MESSAGE_OF_SAME_EMAIL_ADDRESS=By.xpath("//div[@role='alert']");
 }

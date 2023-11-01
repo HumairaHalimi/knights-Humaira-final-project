@@ -7,4 +7,4 @@
   Scenario: Page Title should be  "TEK Insurance UI" and PrimaryAccount
             Button should be existed in home page.
   Then Validate Application Title is "Tek Insurance UI"
-  Then Validate "Primary Account Button" should be existed
+  Then Validate "Create Primary Account" should be existed

@@ -31,37 +31,28 @@ public class SeleniumUtility extends BaseSetup {
         waitUntilElementClickable(locator).click();
 
     }
+
     public String getElementText(By locator) {
         WebElement element = waitUntilVisibilityOfElement(locator);
         return element.getText();
     }
+
     private WebElement waitUntilVisibilityOfElement(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
+
     public void enterValue(By locator, String string) {
         WebElement element = waitUntilVisibilityOfElement(locator);
         //element.sendKeys("value", string);
         element.sendKeys(string);
     }
-    public void selectGender(By locator) {
 
-        WebElement genderElement = waitUntilVisibilityOfElement(locator);
-        Select gender = new Select(genderElement);
+    public void select(By locator, String text) {
+
+        WebElement element = waitUntilVisibilityOfElement(locator);
+        Select select = new Select(element);
         //gender.getAllSelectedOptions();
-        gender.selectByVisibleText("Male");
+        select.selectByVisibleText(text);
     }
-    public void selectMaritalStatus(By locator) {
-
-        WebElement maritalStatusElement = waitUntilVisibilityOfElement(locator);
-        Select maritalStatus = new Select(maritalStatusElement);
-        maritalStatus.selectByVisibleText("Single");
 }
-    public void selectTitle(By locator) {
-
-        WebElement titleElement = waitUntilVisibilityOfElement(locator);
-        Select title = new Select(titleElement);
-        //gender.getAllSelectedOptions();
-        title.selectByVisibleText("Mr.");
-
-    }}

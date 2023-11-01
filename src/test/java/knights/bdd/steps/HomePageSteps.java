@@ -1,6 +1,7 @@
 package knights.bdd.steps;
 
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import knights.bdd.pages.HomePage;
 import knights.bdd.utility.SeleniumUtility;
 import org.junit.Assert;
@@ -13,9 +14,12 @@ String actualAppTitle = getDriver().getTitle();
         Assert.assertEquals(" App Title Validation", expectedAppTitle,
                 actualAppTitle);
     }
+
     @Then("Validate {string} should be existed")
-    public void existenceOfPrimaryAccountButton(String expectedPrimaryAccountButton) {
-    boolean actualPrimaryAccountButton= isElementDisplayed(HomePage.PRIMARY_ACCOUNT_BUTTON);
+    public void existenceOfPrimaryAccountButton(String expectedPrimaryAccountButton){
+    boolean actualPrimaryAccountButton= isElementDisplayed(HomePage.CREATE_PRIMARY_ACCOUNT);
     Assert.assertTrue("Primary Account Button Existence", actualPrimaryAccountButton);
+
     }
+
 }
