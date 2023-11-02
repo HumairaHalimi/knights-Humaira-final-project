@@ -44,7 +44,6 @@ public class SeleniumUtility extends BaseSetup {
 
     public void enterValue(By locator, String string) {
         WebElement element = waitUntilVisibilityOfElement(locator);
-        //element.sendKeys("value", string);
         element.sendKeys(string);
     }
 
@@ -52,7 +51,13 @@ public class SeleniumUtility extends BaseSetup {
 
         WebElement element = waitUntilVisibilityOfElement(locator);
         Select select = new Select(element);
-        //gender.getAllSelectedOptions();
         select.selectByVisibleText(text);
     }
+    public boolean isElementEnabled(By locator) {
+
+        WebElement element = waitUntilVisibilityOfElement(locator);
+        return element.isEnabled();
+
+    }
+
 }
