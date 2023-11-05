@@ -1,3 +1,4 @@
+@Smoke
 Feature: Testing user profile functionalities
 
   Background:
@@ -18,5 +19,5 @@ Feature: Testing user profile functionalities
   @US_8
  Scenario: validating Logout button to be enabled
 
-    #And validate "logout button" is enabled
+    And validate "logout button" is enabled
     And click on "logout button"

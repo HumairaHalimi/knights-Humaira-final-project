@@ -14,9 +14,10 @@ public class CreateAccountPage {
     public final static By CREATE_ACCOUNT_BUTTON =
             By.xpath("/html/body/div[1]/div/div[2]/div/div/div/form/div/div[2]/button[1]");
     public final static By EMAIL_ADD_INPUT =
-    By.xpath("/html/body/div[1]/div/div[2]/div/div/div/h2[3]");
+    By.xpath("//div[1]/div/div[2]/div/div/div/h2[3]");
     public final static By SELECT_GENDER = By.id("gender");
     public final static By SELECT_MARITAL_STATUS = By.id("maritalStatus");
     public final static By SELECT_TITLE = By.id("title");
     public final static By ERROR_MESSAGE_OF_SAME_EMAIL_ADDRESS=By.xpath("//div[@role='alert']");
+    public final static By HOM_PAGE_LOGO = By.xpath("//div[1]/div/div[1]/div/a[1]");
 }

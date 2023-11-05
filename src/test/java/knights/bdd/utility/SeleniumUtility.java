@@ -10,21 +10,29 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SeleniumUtility extends BaseSetup {
     private WebDriverWait getWait() {
 
         return new WebDriverWait(getDriver(), Duration.ofMinutes(1));
     }
+    private WebElement waitUntilVisibilityOfElement(By locator) {
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+    }
+    private List<WebElement> waitUntilVisibilityOfAllElement(By locator) {
+        return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+
+    }
+    private WebElement waitUntilElementClickable(By locator) {
+        return getWait().until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
     public boolean isElementDisplayed(By locator) {
         WebElement element = waitUntilVisibilityOfElement(locator);
         return element.isDisplayed();
 
-    }
-
-    private WebElement waitUntilElementClickable(By locator) {
-        return getWait().until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public void buttonClick(By locator) {
@@ -35,11 +43,6 @@ public class SeleniumUtility extends BaseSetup {
     public String getElementText(By locator) {
         WebElement element = waitUntilVisibilityOfElement(locator);
         return element.getText();
-    }
-
-    private WebElement waitUntilVisibilityOfElement(By locator) {
-        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
-
     }
 
     public void enterValue(By locator, String string) {
@@ -58,6 +61,10 @@ public class SeleniumUtility extends BaseSetup {
         WebElement element = waitUntilVisibilityOfElement(locator);
         return element.isEnabled();
 
+    }
+    public List<WebElement> getListOfElements(By locator) {
+        List<WebElement> elements = waitUntilVisibilityOfAllElement(locator);
+        return elements;
     }
 
 }

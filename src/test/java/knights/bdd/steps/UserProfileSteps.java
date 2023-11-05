@@ -68,7 +68,7 @@ public class UserProfileSteps extends SeleniumUtility {
     ///////////////////////////////////////////////////////////////////////////
 
 
-   /* @Then("validate {string} is enabled")
+    @Then("validate {string} is enabled")
     public void validateLoginButtonDisabledEnabled(String expectedCondition) {
         boolean actualCondition = isElementEnabled(UserProfilePage.LOGOUT_BUTTON);
         if (expectedCondition.equalsIgnoreCase("enabled")) {
@@ -76,7 +76,7 @@ public class UserProfileSteps extends SeleniumUtility {
         } else if (expectedCondition.equalsIgnoreCase("disabled")) {
             Assert.assertFalse("logout Button should be disabled", actualCondition);
         }
-    }*/
+    }
 
     @And("click on {string}")
     public void clickOnLogoutButton(String string) {

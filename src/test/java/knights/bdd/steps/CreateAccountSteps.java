@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import knights.bdd.pages.CreateAccountPage;
 import knights.bdd.pages.HomePage;
 import knights.bdd.utility.SeleniumUtility;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -14,9 +15,9 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class CreateAccountSteps extends SeleniumUtility {
-    /*int random = (int)(Math.random()*100000);
-    String EMAIL_ADDRESS= "omar" +random+ "@tekschool.us";
-    String FIRST_NAME = "Omar" +random;*/
+int random = (int)(Math.random()*1000000);
+
+    //String firstName = "Omar" +random;
 
     @And("Click on {string}")
     public void clickOnPrimaryAccountButton(String expectedCreateButton) {
@@ -30,7 +31,7 @@ public class CreateAccountSteps extends SeleniumUtility {
                 expectedFormTitle
                 , actualFormTitle);
     }
-    @When("user enters credentials")
+   /* @When("user enters credentials")
     public void enterCredentials(DataTable dataTable) throws Exception {
 
         List<List<String>> credentials = dataTable.cells();
@@ -43,6 +44,23 @@ public class CreateAccountSteps extends SeleniumUtility {
         String employmentStatus = credentials.get(0).get(3);
         enterValue(CreateAccountPage.EMPLOYMENT_STATUS, employmentStatus);
         Thread.sleep(4000);
+    }*/
+   @When("user enters {string} as email")
+   public void  user_enters_as_email( String expectedEmailAddress) {
+       String email = random +expectedEmailAddress;
+       enterValue(CreateAccountPage.EMAIL_ADDRESS, email);
+   }
+    @When("user enters {string} as name")
+    public void user_enters_as_name(String expectedFirstName) {
+        enterValue(CreateAccountPage.FIRST_NAME, expectedFirstName);
+    }
+    @When("user enters {string} as lastname")
+    public void user_enters_as_lastname(String expectedLastName) {
+       enterValue(CreateAccountPage.LAST_NAME, expectedLastName);
+    }
+    @When("user enters {string} as employment status")
+    public void user_enters_as_employment_status(String expectedEmploymentStatus) {
+       enterValue(CreateAccountPage.EMPLOYMENT_STATUS, expectedEmploymentStatus);
     }
     @When("user select  {string} as Gender")
     public void selectUserGender(String text)
@@ -68,22 +86,28 @@ public class CreateAccountSteps extends SeleniumUtility {
         buttonClick(CreateAccountPage.CREATE_ACCOUNT_BUTTON);
     }
 
-    @Then("validate {string}is as expected")
+    @Then("validate {string} is as enteredEmail")
    public void validateUserEmailAddressAsExpected(String expectedEmailAddress) {
-       String actualEmailAddress = getElementText(CreateAccountPage.EMAIL_ADD_INPUT);
-        Assert.assertEquals("userEmailAddress validation", expectedEmailAddress, actualEmailAddress );
-        System.out.println((actualEmailAddress));
+        String email = random +expectedEmailAddress;
+        String actualEmailAddress = getElementText(CreateAccountPage.EMAIL_ADD_INPUT);
+        Assert.assertEquals("userEmailAddress validation", email, actualEmailAddress);
 
     }
-    /*@When("clicks on {string}")
-    public void clicks_on(String string) {
+    @Then("click on home page logo")
+    public void clickOnHomePageLogo()throws Exception
+    {
+        Thread.sleep(3000);
+        buttonClick(CreateAccountPage.HOM_PAGE_LOGO);
 
-    }*/
+    }
+
+
     @Then("validate error message {string}")
     public void validate_error_message(String expectedErrorMessage) {
+       String error= expectedErrorMessage.replace("{0}",String.valueOf(random));
        String actualErrorMessage=  getElementText(CreateAccountPage.ERROR_MESSAGE_OF_SAME_EMAIL_ADDRESS);
-      // Assert.assertEquals("validation of error message", expectedErrorMessage, actualErrorMessage);
-        Assert.assertEquals("Validating the error message","ERROR\n"+expectedErrorMessage,actualErrorMessage);
+      // Assert.assertEquals("validation of error message", error, actualErrorMessage);
+        Assert.assertEquals("Validating the error message","ERROR\n"+error,actualErrorMessage);
 
     }
 
