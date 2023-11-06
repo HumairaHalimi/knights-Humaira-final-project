@@ -1,4 +1,6 @@
+@Smoke
 Feature:Testing Accounts Page Functionalities
+
 
   Background:
     When Navigate to Login Button and click
