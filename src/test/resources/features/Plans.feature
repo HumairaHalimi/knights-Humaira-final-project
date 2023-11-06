@@ -14,8 +14,8 @@ Feature:Testing Plans Page functions.
 
   @US_10
   Scenario:Validating time accuracy in date table
-  Then Validate DATE CREATED is November 5, 2023
-  And Validate DATE EXPIRE is November 6, 2023
+  Then Validate DATE CREATED is November 6, 2023
+  And Validate DATE EXPIRE is November 7, 2023
 
 
 

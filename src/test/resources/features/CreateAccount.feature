@@ -46,8 +46,10 @@ Feature: Creating Account Functions
     And user select "Single" as Marital Status
     And user enters "04/17/2004" as Date Of Birth
     And clicks on Create Account button and navigate to sign up page
+
     Then click on home page logo
     And Click on "Create Primary Account"
+
     When user enters "omar@tekschool.us" as email
     When user enters "Omar" as name
     When user enters "Halimi" as lastname
