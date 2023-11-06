@@ -8,10 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "classpath:features",
         glue = "knights.bdd.steps",
-        tags = "@US_5",
+        tags = "@Smoke",
         dryRun =false, //if true wont run steps just check for un implemented stages
         plugin = {
-                "html:target/html_report/report.html"}
+                "html:target/html_report/report.html",
+                "json:target/jsonReports/report.json"}
 
 )
 public class TestRunner {
